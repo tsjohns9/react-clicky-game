@@ -1,0 +1,10 @@
+.container {
+  margin-top: 50px;
+}
+
+@media (min-width: 1100px) {
+  .container {
+    padding: 0 100px;
+    width: 1100px;
+  }
+}

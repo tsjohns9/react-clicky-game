@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
-import Character from './components/Character';
-import names from './names';
+import Container from './components/Container';
+
+import images from './images';
 
 class App extends Component {
   state = {
     score: 0,
     highScore: 0,
     clickResult: 'Click an image to begin!',
-    allCharacters: names
+    allCharacters: images
     // need an array to track clicked images
     // once an image is clicked it gets pushed to the array
     // for each click, check if the image is in the array
@@ -20,6 +21,10 @@ class App extends Component {
     // add 1 to highscore for each 1 added to score
   };
 
+  randomize(array) {
+    const shuffleArr = array.slice();
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +33,7 @@ class App extends Component {
           highScore={this.state.highScore}
           clickResult={this.state.clickResult}
         />
-        <Character name={this.state.allCharacters[2]} />
+        <Container characters={this.state.allCharacters} />
       </div>
     );
   }
