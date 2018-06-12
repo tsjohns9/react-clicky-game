@@ -9,7 +9,8 @@ class ClickyGame extends Component {
     score: 0,
     highScore: 0,
     clickResult: 'Click an image to begin!',
-    allCharacters: images
+    allCharacters: images,
+    clickEvent: this.shuffle.bind(this)
     // need an array to track clicked images
     // once an image is clicked it gets pushed to the array
     // for each click, check if the image is in the array
@@ -21,8 +22,8 @@ class ClickyGame extends Component {
     // add 1 to highscore for each 1 added to score
   };
 
-  shuffle(array) {
-    const newArr = array.slice();
+  shuffle() {
+    const newArr = this.state.allCharacters.slice();
     const shuffleArr = [];
 
     let i = 0;
@@ -33,12 +34,11 @@ class ClickyGame extends Component {
         i++;
       }
     }
-    console.log(shuffleArr);
     return this.setState({ allCharacters: shuffleArr });
   }
 
   componentWillMount() {
-    this.shuffle(this.state.allCharacters);
+    this.shuffle();
   }
 
   render() {
@@ -49,7 +49,7 @@ class ClickyGame extends Component {
           highScore={this.state.highScore}
           clickResult={this.state.clickResult}
         />
-        <Container characters={this.state.allCharacters} />
+        <Container characters={this.state.allCharacters} clickEvent={this.state.clickEvent} />
       </div>
     );
   }

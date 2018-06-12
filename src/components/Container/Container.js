@@ -4,7 +4,7 @@ import Character from '../Character';
 
 const Container = props => (
   <div className="container d-flex flex-wrap justify-content-center">
-    {props.characters.map((a, i) => <Character name={a} key={i} />)}
+    {props.characters.map((a, i) => <Character name={a} key={i} clickEvent={props.clickEvent} />)}
   </div>
 );
 
