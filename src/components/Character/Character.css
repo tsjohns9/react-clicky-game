@@ -6,6 +6,10 @@
   width: 170px;
 }
 
+.card-img-top {
+  border-radius: 0;
+}
+
 .card-height {
   width: 100% !important;
   height: 100% !important;
