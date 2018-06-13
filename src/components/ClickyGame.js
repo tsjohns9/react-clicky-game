@@ -20,7 +20,10 @@ class ClickyGame extends Component {
     clickEvent: this.checkClicked.bind(this),
 
     // will track  each clicked element.
-    wasClicked: []
+    wasClicked: [],
+
+    // shakes the container on an incorrect guess if set to true
+    shake: false
   };
 
   // used to shuffle the array of images when the DOM loads, and when an image is clicked
@@ -82,7 +85,8 @@ class ClickyGame extends Component {
         highScore: highScore,
         navMessage: 'Incorrect guess!',
         allCharacters: shuffled,
-        wasClicked: []
+        wasClicked: [],
+        shake: true
       });
     }
 
@@ -92,7 +96,8 @@ class ClickyGame extends Component {
       highScore: highScore,
       navMessage: 'You Guessed Correctly!',
       allCharacters: shuffled,
-      wasClicked: prevState
+      wasClicked: prevState,
+      shake: false
     });
   }
 
@@ -112,7 +117,11 @@ class ClickyGame extends Component {
           highScore={this.state.highScore}
           navMessage={this.state.navMessage}
         />
-        <Container characters={this.state.allCharacters} clickEvent={this.state.clickEvent} />
+        <Container
+          shake={this.state.shake}
+          characters={this.state.allCharacters}
+          clickEvent={this.state.clickEvent}
+        />
       </div>
     );
   }

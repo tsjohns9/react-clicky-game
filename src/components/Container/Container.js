@@ -8,7 +8,13 @@ import Character from '../Character';
 // attaches the passed down clickEvent function to each Character component
 const Container = props => (
   // loops through
-  <div className="container d-flex flex-wrap justify-content-center">
+  <div
+    className={
+      props.shake
+        ? 'container d-flex flex-wrap justify-content-center shake'
+        : 'container d-flex flex-wrap justify-content-center'
+    }
+  >
     {props.characters.map((a, i) => <Character name={a} key={i} clickEvent={props.clickEvent} />)}
   </div>
 );
