@@ -1,7 +1,8 @@
 .card {
   border: 3px solid #d7d7d7;
+  cursor: pointer;
   height: 170px;
-  margin: 10px;
+  margin: 15px;
   overflow: hidden;
   width: 170px;
 }
@@ -11,6 +12,6 @@
 }
 
 .card-height {
-  width: 100% !important;
   height: 100% !important;
+  width: 100% !important;
 }
