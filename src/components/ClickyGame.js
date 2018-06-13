@@ -10,7 +10,8 @@ class ClickyGame extends Component {
     highScore: 0,
     clickResult: 'Click an image to begin!',
     allCharacters: images,
-    clickEvent: this.shuffle.bind(this)
+    clickEvent: this.shuffle.bind(this),
+    wasClicked: []
     // need an array to track clicked images
     // once an image is clicked it gets pushed to the array
     // for each click, check if the image is in the array
@@ -22,11 +23,14 @@ class ClickyGame extends Component {
     // add 1 to highscore for each 1 added to score
   };
 
-  shuffle() {
+  shuffle(clickedElem) {
     const newArr = this.state.allCharacters.slice();
+    const prevState = this.state.wasClicked.slice();
     const shuffleArr = [];
-
+    let score = this.state.score;
+    let highScore = this.state.highScore;
     let i = 0;
+
     while (i < newArr.length) {
       const rando = Math.floor(Math.random() * newArr.length);
       if (!shuffleArr.includes(newArr[rando])) {
@@ -34,7 +38,31 @@ class ClickyGame extends Component {
         i++;
       }
     }
-    return this.setState({ allCharacters: shuffleArr });
+
+    if (clickedElem && !this.state.wasClicked.includes(clickedElem)) {
+      console.log(score === highScore);
+      if (score === highScore) {
+        score++;
+        highScore++;
+      } else {
+        score++;
+      }
+
+      prevState.push(clickedElem);
+    }
+
+    if (clickedElem && this.state.wasClicked.includes(clickedElem)) {
+      let score = 0;
+      console.log('already clicked!');
+      return this.setState({ allCharacters: shuffleArr, wasClicked: [], score, highScore });
+    }
+
+    return this.setState({
+      allCharacters: shuffleArr,
+      wasClicked: prevState,
+      score: score,
+      highScore: highScore
+    });
   }
 
   componentWillMount() {
