@@ -3,7 +3,6 @@ import Navbar from './Navbar';
 import Container from './Container';
 import Footer from './Footer';
 import Banner from './Banner';
-
 import images from '../images';
 
 class ClickyGame extends Component {
@@ -39,19 +38,13 @@ class ClickyGame extends Component {
     // will store the shuffled array
     const shuffleArr = [];
 
-    // tracks our loops
-    let i = 0;
-    while (i < newArr.length) {
-      // grabs random index from newArr, which is a copy of state.allCharacters
-      const rando = Math.floor(Math.random() * newArr.length);
-
-      // if shuffleArr does not contain the random index value, then add it to shuffleArr, and add 1 to the counter
-      if (!shuffleArr.includes(newArr[rando])) {
-        shuffleArr.push(newArr[rando]);
-        i++;
-      }
-      // if the array does contain the random index, then the loop runs again
+    // each loop through an index gets spliced from newArr, reducing its length
+    // gets a random index based off the current length of newArr
+    // splices the value from newArr, and pushes it to shuffleArr
+    while (newArr.length > 0) {
+      shuffleArr.push(newArr.splice(Math.floor(Math.random() * newArr.length), 1)[0]);
     }
+
     return shuffleArr;
   }
 
