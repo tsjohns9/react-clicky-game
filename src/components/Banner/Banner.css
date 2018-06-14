@@ -1,0 +1,14 @@
+.banner {
+  background-image: url('../../images/bg.png') !important;
+  height: 370px;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white;
+  font-size: 18px;
+}
+
+@media (min-width: 576px) {
+  .banner {
+    font-size: calc(10px + 14 * (100vw - 320px) / 800);
+  }
+}

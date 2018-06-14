@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Container from './Container';
+import Footer from './Footer';
+import Banner from './Banner';
 
 import images from '../images';
 
@@ -126,11 +128,13 @@ class ClickyGame extends Component {
           navMessage={this.state.navMessage}
           navMsgColor={this.state.navMsgColor}
         />
+        <Banner />
         <Container
           shake={this.state.shake}
           characters={this.state.allCharacters}
           clickEvent={this.state.clickEvent}
         />
+        <Footer />
       </div>
     );
   }
