@@ -9,6 +9,9 @@ class ClickyGame extends Component {
     score: 0,
     highScore: 0,
 
+    // stores the class value to assign to navMessage based on a good or bad click
+    navMsgColor: '',
+
     // contains intro, success, and failure message
     navMessage: 'Click an image to begin!',
 
@@ -83,6 +86,7 @@ class ClickyGame extends Component {
       return this.setState({
         score: score,
         highScore: highScore,
+        navMsgColor: 'incorrect',
         navMessage: 'Incorrect guess!',
         allCharacters: shuffled,
         wasClicked: [],
@@ -91,14 +95,18 @@ class ClickyGame extends Component {
     }
 
     // if this runs, then the same element has not been clicked twice and the score is increased
-    return this.setState({
+    this.setState({
       score: score,
       highScore: highScore,
+      navMsgColor: 'correct',
       navMessage: 'You Guessed Correctly!',
       allCharacters: shuffled,
       wasClicked: prevState,
       shake: false
     });
+
+    // removes the green correct indicator on a successful click after .5s to re-render the class on each success
+    return setTimeout(() => this.setState({ navMsgColor: '' }), 500);
   }
 
   // shuffles the characters when the DOM loads
@@ -116,6 +124,7 @@ class ClickyGame extends Component {
           score={this.state.score}
           highScore={this.state.highScore}
           navMessage={this.state.navMessage}
+          navMsgColor={this.state.navMsgColor}
         />
         <Container
           shake={this.state.shake}

@@ -28,10 +28,10 @@
 }
 
 .correct {
-  animation: correctGuess 0.25s;
+  animation: correctGuess 0.5s;
 }
 .incorrect {
-  animation: incorrectGuess 0.25s;
+  animation: incorrectGuess 0.5s;
 }
 
 @keyframes incorrectGuess {
