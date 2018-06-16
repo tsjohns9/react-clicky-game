@@ -17,11 +17,7 @@ class ClickyGame extends Component {
     navMessage: 'Click an image to begin!',
 
     // contains an array of image urls
-    allCharacters: images,
-
-    // binds the current this context to checkClicked to have access to the current state
-    // when passed down to the Character component
-    clickEvent: this.checkClicked.bind(this),
+    allCharacters: this.shuffleArray(),
 
     // will track  each clicked element.
     wasClicked: [],
@@ -30,10 +26,14 @@ class ClickyGame extends Component {
     shake: false
   };
 
+  // binds the current this context to checkClicked to have access to the current state
+  // when passed down to the Character component
+  clickEvent = this.checkClicked.bind(this);
+
   // used to shuffle the array of images when the DOM loads, and when an image is clicked
   shuffleArray() {
     // creates a copy of the current characters array to modify it by value, and not by reference
-    const newArr = this.state.allCharacters.slice();
+    const newArr = images.slice();
 
     // will store the shuffled array
     const shuffleArr = [];
@@ -104,28 +104,24 @@ class ClickyGame extends Component {
     return setTimeout(() => this.setState({ navMsgColor: '' }), 500);
   }
 
-  // shuffles the characters when the DOM loads
-  componentWillMount() {
-    this.setState({ allCharacters: this.shuffleArray() });
-  }
-
   // renders score to the navbar.
   // passes the randomized state.allCharacters array to Container to create a Character component for each image.
   // passes the this.checkClicked down to container to pass to each Character component to be used for the click event.
   render() {
+    const state = this.state;
     return (
       <div>
         <Navbar
-          score={this.state.score}
-          highScore={this.state.highScore}
-          navMessage={this.state.navMessage}
-          navMsgColor={this.state.navMsgColor}
+          score={state.score}
+          highScore={state.highScore}
+          navMessage={state.navMessage}
+          navMsgColor={state.navMsgColor}
         />
         <Banner />
         <Container
-          shake={this.state.shake}
-          characters={this.state.allCharacters}
-          clickEvent={this.state.clickEvent}
+          shake={state.shake}
+          characters={state.allCharacters}
+          clickEvent={this.clickEvent}
         />
         <Footer />
       </div>
