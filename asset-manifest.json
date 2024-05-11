@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-clicky-game/static/css/main.faa33fc1.css",
+    "main.js": "/react-clicky-game/static/js/main.b266e5fb.js",
+    "static/media/rick.png": "/react-clicky-game/static/media/rick.d6a9b603c143b99a5f14.png",
+    "static/media/gianthead.png": "/react-clicky-game/static/media/gianthead.5d8ec7dc1675ddbd98f6.png",
+    "static/media/morty.png": "/react-clicky-game/static/media/morty.0569abf5f818d1de55b4.png",
+    "static/media/goldenford.png": "/react-clicky-game/static/media/goldenford.fa52c6930f002d7b1e7c.png",
+    "static/media/jessica.png": "/react-clicky-game/static/media/jessica.027adf81999d92745f69.png",
+    "static/media/bg.png": "/react-clicky-game/static/media/bg.be8d2259c09a3d1fe461.png",
+    "static/media/mr.png": "/react-clicky-game/static/media/mr.bde5925cdffbb9857c2b.png",
+    "static/media/summer.png": "/react-clicky-game/static/media/summer.b292c557a2a4f7857f04.png",
+    "static/media/evilmorty.png": "/react-clicky-game/static/media/evilmorty.f3b3317f850fcfcf7fe0.png",
+    "static/media/meeseeks.png": "/react-clicky-game/static/media/meeseeks.c5e3a3b3a51b6e4c7fab.png",
+    "static/media/beth.png": "/react-clicky-game/static/media/beth.a7841a576fe42b60fa79.png",
+    "static/media/birdperson.png": "/react-clicky-game/static/media/birdperson.98ca890f8c9f848fcb0a.png",
+    "static/media/jerry.png": "/react-clicky-game/static/media/jerry.d3637650ce8cc6ba1320.png",
+    "index.html": "/react-clicky-game/index.html",
+    "main.faa33fc1.css.map": "/react-clicky-game/static/css/main.faa33fc1.css.map",
+    "main.b266e5fb.js.map": "/react-clicky-game/static/js/main.b266e5fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.faa33fc1.css",
+    "static/js/main.b266e5fb.js"
+  ]
+}
